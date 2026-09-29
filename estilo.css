@@ -1,0 +1,193 @@
+/* --- RESET E CONFIGURAÇÕES GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fundo escuro estilo estúdio/palco */
+    color: #e0e0e0;            /* Texto claro para facilitar a leitura */
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- ESTILO DO MODO CLARO (FUNDO BRANCO) --- */
+body.light-mode {
+    background-color: #ffffff;
+    color: #2f3640;
+}
+
+body.light-mode header {
+    background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+    border-bottom: 4px solid #ff4757;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode header h1 {
+    color: #2f3640;
+}
+
+body.light-mode header p {
+    color: #57606f;
+}
+
+body.light-mode .guitar-card {
+    background-color: #f7f9fa;
+    border: 1px solid #dcdde1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .guitar-info h2 {
+    color: #2f3640;
+}
+
+body.light-mode .guitar-info p {
+    color: #57606f;
+}
+
+body.light-mode footer {
+    border-top: 1px solid #dfe4ea;
+    color: #747d8c;
+}
+
+/* --- BOTÃO FLUTUANTE DE TEMA --- */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4757;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* --- CABEÇALHO --- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 4px solid #ff4757; /* Detalhe em destaque */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #a4b0be;
+}
+
+/* --- CONTEÚDO PRINCIPAL / GRADE DE GUITARRAS --- */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.guitar-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.guitar-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid #333;
+}
+
+.guitar-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(255, 71, 87, 0.2);
+}
+
+/* --- CONTAINER DE MÍDIA (FOTO / VÍDEO) --- */
+.media-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+    background-color: #2c2c2c;
+}
+
+.guitar-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corrigido para funcionar perfeitamente */
+}
+
+/* Overlay com aviso para tocar o som/vídeo */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-overlay span {
+    background-color: #ff4757;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.media-container:hover .play-overlay {
+    opacity: 1;
+}
+
+.guitar-info {
+    padding: 20px;
+}
+
+.guitar-info h2 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.guitar-info p {
+    color: #a4b0be;
+    font-size: 0.95rem;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: #747d8c;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Guitas</title>
+    <!-- Certifique-se de que o arquivo CSS se chama estilo.css -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <!-- Botão de Alternar Tema (Fundo Branco / Escuro) -->
+    <button id="theme-toggle" title="Alternar modo claro/escuro">☀️</button>
+
+    <header>
+        <h1>Minhas Futuras Guitas!!</h1>
+        <p>Esses são meus objetivos como guitarrista</p>
+    </header>
+
+    <main class="guitar-container">
+        <!-- Guitarra 1: Semi-acústica -->
+        <div class="guitar-card">
+            <div class="media-container" data-video="https://www.youtube.com/embed/In9DODjakc8?autoplay=1">
+                <img src="images.jpg" alt="Semi-acústica">
+                <div class="play-overlay">
+                    <span>▶ Ouvir Timbre</span>
+                </div>
+            </div>
+            <div class="guitar-info">
+                <h2>Semi-acústica</h2>
+                <p>Essa é uma guitarra muito eclética, em que posso usá-la com um timbre mais clean, e se encaixa perfeitamente em um blues.</p>
+            </div>
+        </div>
+
+        <!-- Guitarra 2: Strato Fender -->
+        <div class="guitar-card">
+            <div class="media-container" data-video="https://www.youtube.com/embed/1W8Uy7SQpP8?autoplay=1">
+                <img src="fender.webp" alt="Strato Fender">
+                <div class="play-overlay">
+                    <span>▶ Ouvir Timbre</span>
+                </div>
+            </div>
+            <div class="guitar-info">
+                <h2>Strato Fender</h2>
+                <p>Essa é um sonho de consumo, uma strato fender!! Perfeita pra performance em worship, rock, com um timbre elegante.</p>
+            </div>
+        </div>
+
+        <!-- Guitarra 3: Gibson Les Paul -->
+        <div class="guitar-card">
+            <div class="media-container" data-video="https://www.youtube.com/embed/n_03Z-JL2c0?autoplay=1">
+                <img src="gibson.webp" alt="Gibson Les Paul">
+                <div class="play-overlay">
+                    <span>▶ Ouvir Timbre</span>
+                </div>
+            </div>
+            <div class="guitar-info">
+                <h2>Gibson Les Paul</h2>
+                <p>Rock!! Essa tem um timbre clássico, pesado e grave!! Amor, somente a essa guitarra!!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Projeto das guitarras dos sonhos 🎸</p>
+    </footer>
+
+    <!-- Script Simples para Alternar o Tema e Abrir os Vídeos -->
+    <script>
+        // Alternar Tema Claro/Escuro
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeToggleBtn.textContent = '🌙';
+            } else {
+                themeToggleBtn.textContent = '☀️';
+            }
+        });
+
+        // Abrir Vídeos em Miniatura ao Clicar na Imagem da Guitarra
+        document.querySelectorAll('.media-container').forEach(container => {
+            container.addEventListener('click', function() {
+                const videoUrl = this.getAttribute('data-video');
+                this.innerHTML = `
+                    <iframe width="100%" height="350" src="${videoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                `;
+            });
+        });
+    </script>
+</body>
+
+</html>
